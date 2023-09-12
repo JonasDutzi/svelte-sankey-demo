@@ -1,9 +1,10 @@
 import "./style.css";
-import "../../svelte-sankey-lib/dist/svelte-sankey.js";
 
+import "svelte-sankey/webc/SankeyChart.js";
 let sankey: any = document.getElementById("sv-sankey");
+//let sankey2: any = document.getElementById("sv-sankey2");
 
-sankey.chartdata = {
+let sankeydata = {
     data: [
         {
             id: "input",
@@ -74,3 +75,59 @@ sankey.chartdata = {
         }
     ]
 };
+
+let sankeydata2 = {
+    data: [
+        {
+            id: "input2",
+            columnLabel: "Input",
+            rows: [
+                {
+                    rowLabel: "Category",
+                    items: [
+                        { id: 1, label: "1" },
+                        { id: 2, label: "2" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "root2",
+            columnLabel: "root",
+            rows: [
+                {
+                    rowLabel: "Category",
+                    items: [{ id: 3, label: "3" }]
+                }
+            ]
+        },
+        {
+            id: "output2",
+            columnLabel: "Output",
+            rows: [
+                {
+                    rowLabel: "End-Product",
+                    items: [
+                        { id: 4, label: "4" },
+                        { id: 5, label: "5" }
+                    ]
+                }
+            ]
+        }
+    ],
+    links: [
+        {
+            source: 1,
+            target: 2,
+            value: 5
+        },
+        {
+            source: 2,
+            target: 3,
+            value: 3
+        }
+    ]
+};
+
+sankey.chartdata = sankeydata;
+//sankey2.chartdata = sankeydata2;
